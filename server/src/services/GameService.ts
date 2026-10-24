@@ -16,8 +16,14 @@ class GameService {
   startRound(io: Server, roomId: string) {
     const room = roomService.getRoom(roomId);
     if (!room || !room.game) return;
-
+    console.log(
+      "Before startNextRound:",
+      room.game.currentRound,
+      "Total rounds:",
+      room.settings.rounds
+    );
     const gameContinues = room.game.startNextRound(
+     
       // On Word Options generated
       (drawerId, words) => {
         // Send state to everyone
@@ -29,7 +35,7 @@ class GameService {
       // On Round End naturally
       () => this.endRound(io, roomId)
     );
-
+   
     if (!gameContinues) {
       room.broadcastState(io, SocketEvents.GAME_OVER);
     }

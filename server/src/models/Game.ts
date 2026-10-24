@@ -24,12 +24,16 @@ export class Game {
   }
 
   startNextRound(wordOptionsCallback: (drawerId: string, words: string[]) => void, roundEndCallback: () => void) {
-    this.currentRound++;
-    if (this.currentRound > this.room.settings.rounds) {
+    
+    console.log(
+      "Inside StartNextRound:",
+      this.currentRound
+    );
+    if (this.currentRound >= this.room.settings.rounds) {
       this.room.gamePhase = GamePhase.GAME_OVER;
       return false; // Game is over
     }
-    
+    this.currentRound++;
     // Reset players for new round
     this.room.getPlayersList().forEach(p => p.resetForNewRound());
 
