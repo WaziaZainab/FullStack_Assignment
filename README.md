@@ -107,6 +107,7 @@ Socket.IO is used to support real-time communication between connected players, 
 **Wazia Zainab**
 
 GitHub: [WaziaZainab](https://github.com/WaziaZainab)
+Live:   (https://full-stack-assignment-ic74.vercel.app/)
 
 ---
 
